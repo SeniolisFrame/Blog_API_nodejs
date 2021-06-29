@@ -16,8 +16,7 @@ const userSchema = new mongoose.Schema({
     update_date : {
       type : Date,
       default : Date.now
-    },
-    last_login : Date
+    }
   },{
     versionKey: false
   });
