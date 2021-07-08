@@ -7,7 +7,7 @@ module.exports = (req,res,next) => {
         message : "invalid token"
     });
 
-    jwt.verify(token,process.env.jwt_secret,(err,user)=>{
+    jwt.verify(token,process.env.ACCESS_TOKEN_SECRET,(err,user)=>{
         if(err){
             return res.status(403).json({
                 message : "token can't verify"

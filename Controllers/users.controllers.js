@@ -15,7 +15,7 @@ const signup = async (req,res) => {
             res.json({
                 message:"Email or Username Exists"
         })
-        bcrypt.hash(req.body.password,10,(err,hash)=>{
+        bcrypt.hash(req.body.password,10,(err,encrpted)=>{
             if(err) {
                 return res.json({
                     error : err
@@ -26,7 +26,7 @@ const signup = async (req,res) => {
                 name : req.body.name,
                 email : req.body.email,
                 username : req.body.username,
-                password : hash,
+                password : encrpted,
             });
             user.save().then((result)=>{
                 return res.json({
@@ -56,7 +56,7 @@ const login = async (req,res) => {
                 const token = jwt.sign({
                     _id : user._id,
                 },
-                process.env.jwt_secret,{ expiresIn: "30m"});
+                process.env.ACCESS_TOKEN_SECRET,{ expiresIn: "30m"});
                 return res.json({
                     name : user.name,
                     username : user.username,
@@ -79,7 +79,9 @@ const getProfile = async (req,res) => {
     User.findOne( { _id : req.user._id
     }).then((user)=>
     {
-        res.json(user);
+        res.json({
+            name : user.name
+        });
     })
 }
 
