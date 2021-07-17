@@ -29,21 +29,9 @@ const getBlog = async (req,res) => {
                     author : user.firstname+' '+user.lastname,
                     comment : comment
                 });
-            }).catch((err)=>{
-                return res.json({
-                    message : "error"
-                });
-            })
-        }).catch((err)=>{
-            return res.json({
-                message : "error"
-            });
-        })
-    }).catch((err)=>{
-        return res.json({
-            message: "error"
-        });
-    });
+            }).catch(()=>{ return res.json({ message : "error" }) });
+        }).catch(()=>{ return res.json({ message : "error" }) });
+    }).catch(()=>{ return res.json({ message: "error" }) });
 }
 
 const postBlog = async (req,res) => {
@@ -65,6 +53,7 @@ const commentBlog = async (req,res) => {
     comment.save().then(()=>{ return res.json({ message:"success" })}).catch(()=> { return res.json({ messege:"error" }) });
 }
 
+
 module.exports = {
-    getAllBlog,getBlog,postBlog,commentBlog
+    getAllBlog, getBlog, postBlog, commentBlog
 }

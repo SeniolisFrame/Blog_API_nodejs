@@ -44,6 +44,9 @@ const login = async (req,res) => {
     User.findOne(
         { username : req.body.username }
     ).then((user)=>{
+        if(!user){
+            throw new Error();
+        }
         bcrypt.compare(req.body.password,user.password,(err,result)=>{
             if (err) {
                 return res.json({
@@ -75,6 +78,23 @@ const login = async (req,res) => {
 
 const getProfile = async (req,res) => {
     User.findOne( { _id : req.user._id }).then((user)=> {
+        if(!user){
+            throw new Error();
+        }
+        return res.json({
+            firstname: user.firstname,
+            lastname: user.lastname,
+            username : user.username,
+            intro : user.intro
+        });
+    }).catch(()=>{ return res.json({ message:"error" }) });
+}
+
+const viewProfile = async (req,res) => {
+    User.findOne( { _id : req.params.id } ).then((user)=>{
+        if(!user){
+            throw new Error();
+        }
         return res.json({
             firstname: user.firstname,
             lastname: user.lastname,
@@ -85,5 +105,5 @@ const getProfile = async (req,res) => {
 }
 
 module.exports = {
-    register, login, getProfile
+    register, login, getProfile, viewProfile
 }
