@@ -1,5 +1,6 @@
 const express = require('express');
 const usersRouter = require('./Routes/user.routes');
+const blogRouter = require('./Routes/blog.routes');
 const EventEmitter = require('events');
 process.setMaxListeners(0);
 require('./db');
@@ -9,11 +10,8 @@ const app = express();
 app.use(express.urlencoded({extended: true}));
 app.use(express.json())
 
-app.post('/',(req,res)=>{
-    res.json(req.body)
-})
-
 app.use('/user',usersRouter);
+app.use('/blog',blogRouter);
 
 app.use((req, res, next) => {
     res.status(err.status || 404).json({
