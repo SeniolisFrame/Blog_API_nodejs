@@ -38,7 +38,7 @@ const postBlog = async (req,res) => {
     let blog = new Blog({
         _id: new mongoose.Types.ObjectId(),
         topic: req.body.topic,
-        content : req.body.text,
+        content : req.body.content,
         author_id : req.user._id
     });
     blog.save().then(()=>{ return res.json({ message:"success" })}).catch(()=>{ return res.json({ message: "error" }) });

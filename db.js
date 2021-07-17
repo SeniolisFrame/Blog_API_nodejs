@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const dbURI = 'mongodb://127.0.0.1:27017/blog';
+const dbURI = 'mongodb+srv://Seniolis:frame2841@nodecluster.v19bt.mongodb.net/blogweb?retryWrites=true&w=majority';
 
 const option = {
     useNewUrlParser: true,
