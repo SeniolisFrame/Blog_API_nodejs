@@ -8,6 +8,9 @@ const app = express();
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json())
+app.get('/',(req,res)=>{
+  return res.json({ message : 'Hello Server'});
+})
 
 app.use('/user',usersRouter);
 app.use('/blog',blogRouter);
