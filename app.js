@@ -30,7 +30,7 @@ app.use((err, req, res, next) => {
 const port = process.env.port || 5000;
 
 try {
-  app.listen(PORT, () => { console.log(`server running at port ${PORT}`) })
+  app.listen(port, () => { console.log(`server running at port ${port}`) })
 } catch (error) {
   console.log(error)
 }
