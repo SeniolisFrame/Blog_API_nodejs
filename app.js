@@ -27,7 +27,7 @@ app.use((err, req, res, next) => {
     })
 });
 
-const port = process.env.port || 3000;
+const port = process.env.port || 443;
 
 app.listen(port,() => {
     console.log("server start")
