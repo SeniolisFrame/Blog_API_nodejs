@@ -1,7 +1,6 @@
 const express = require('express');
 const usersRouter = require('./Routes/user.routes');
 const blogRouter = require('./Routes/blog.routes');
-const EventEmitter = require('events');
 process.setMaxListeners(0);
 require('./db');
 
@@ -25,6 +24,8 @@ app.use((err, req, res, next) => {
     })
 });
 
-app.listen(3000,() => {
+const port = process.env.port || 3000;
+
+app.listen(port,() => {
     console.log("server start")
 })
