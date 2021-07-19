@@ -6,6 +6,7 @@ require('./db');
 
 const app = express();
 
+
 app.use(express.urlencoded({extended: true}));
 app.use(express.json())
 app.get('/',(req,res)=>{
@@ -27,7 +28,7 @@ app.use((err, req, res, next) => {
     })
 });
 
-const port = process.env.port || 5000;
+const port = process.env.port || 4000;
 
 try {
   app.listen(port, () => { console.log(`server running at port ${port}`) })
