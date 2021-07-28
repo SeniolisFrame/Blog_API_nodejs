@@ -28,10 +28,10 @@ app.use((err, req, res, next) => {
     })
 });
 
-const port = process.env.port || 4000;
+const PORT = process.env.port || 4000;
 
 try {
-  app.listen(port, () => { console.log(`server running at port ${port}`) })
+  app.listen(PORT, () => { console.log(`server running at port ${PORT}`) })
 } catch (error) {
   console.log(error)
 }

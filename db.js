@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const dbURI = 'mongodb+srv://Seniolis:frame2841@nodecluster.v19bt.mongodb.net/blogweb?retryWrites=true&w=majority';
+const dbURI = process.env.DB_URI;
 
 const option = {
     useNewUrlParser: true,
@@ -8,6 +8,10 @@ const option = {
 }
 
 mongoose.connect(dbURI,option).then(
-    () => console.log(`Database uri: ${dbURI} Connected`)).catch(
-    (err) => console.log(err)
+    () => {
+        console.log(`Database uri: ${dbURI} Connected`);
+    }).catch(
+    (err) => {
+        console.log(err);
+    }
 );
