@@ -15,6 +15,10 @@
 ### /user
 ###### /user/register                     -> register id
 ###### /user/login                        -> login
-###### /user/getProfile                   -> get my profile (require jwt)
+###### /user/getProfile                   -> get your profile (require jwt)
 ###### /user/viewProfile/:id              -> get other profile
 ### /blog
+###### /blog/getAllBlog                   -> get all blog
+###### /blog/getBlog/:id                  -> get 1 blog (id)
+###### /blog/postBlog                     -> get post your blog
+###### /blog/commentBlog                  -> comment blog (require blog_id)
