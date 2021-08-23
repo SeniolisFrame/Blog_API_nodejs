@@ -10,3 +10,11 @@
 
 ## Start :
 ### npm start
+
+## URL :
+### /user
+###### /user/register                     -> register id
+###### /user/login                        -> login
+###### /user/getProfile                   -> get my profile (require jwt)
+###### /user/viewProfile/:id              -> get other profile
+### /blog
